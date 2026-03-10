@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 92%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 92%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 92%;
+
+    --primary: 0 85% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 92%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 0 85% 50%;
+
+    --radius: 0.25rem;
+
+    --gunmetal: 210 6% 35%;
+    --gunmetal-light: 210 4% 55%;
+    --chrome: 210 3% 78%;
+    --asphalt: 0 0% 8%;
+    --rosso: 0 85% 50%;
+    --rosso-glow: 0 90% 60%;
+
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+
+    --gradient-rosso: linear-gradient(135deg, hsl(0 85% 50%), hsl(15 90% 55%));
+    --gradient-chrome: linear-gradient(135deg, hsl(210 3% 78%), hsl(210 6% 45%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 5%), hsl(0 0% 2%));
+    --shadow-rosso: 0 0 40px -10px hsl(0 85% 50% / 0.5);
+    --shadow-chrome: 0 10px 30px -10px hsl(0 0% 0% / 0.6);
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 0 85% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 0 0% 92%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 0 85% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+}
+
+@layer components {
+  .gradient-rosso {
+    background: var(--gradient-rosso);
+  }
+
+  .gradient-chrome {
+    background: var(--gradient-chrome);
+  }
+
+  .text-chrome {
+    background: var(--gradient-chrome);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-rosso-glow {
+    color: hsl(var(--rosso));
+    text-shadow: 0 0 30px hsl(var(--rosso) / 0.4);
+  }
+
+  .border-glow-rosso {
+    border-color: hsl(var(--rosso) / 0.3);
+    box-shadow: var(--shadow-rosso);
+  }
+
+  .metallic-surface {
+    background: linear-gradient(145deg, hsl(0 0% 10%), hsl(0 0% 6%));
+    border: 1px solid hsl(0 0% 15%);
+  }
+
+  .magnetic-hover {
+    transition: transform 0.2s ease-out;
+  }
+
+  .magnetic-hover:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-rosso);
+  }
+
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-20 py-16 md:py-24;
+  }
+
+  .heading-xl {
+    @apply text-5xl md:text-7xl lg:text-8xl leading-none tracking-wider;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-5xl lg:text-6xl leading-none tracking-wider;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl lg:text-4xl leading-tight tracking-wide;
+  }
+
+  .body-lg {
+    @apply text-base md:text-lg leading-relaxed;
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: hsl(var(--muted-foreground));
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 5%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(0 0% 20%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(0 85% 50%);
+}
